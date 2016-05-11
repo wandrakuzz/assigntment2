@@ -48,7 +48,7 @@ $univ = array
            <form class="" action="validate_biodata.php" method="post">
               <div class="col-md-5">
                 <div class="form-group">
-                <label>Name :</label><input name="name"class="form-control" placeholder="Insert your name" autofocus>
+                <label>Name :</label><input name="name" class="form-control" placeholder="Insert your name" autofocus>
               </div>
               <div class="form-group">
                 <label>Age :</label><input name="age" class="form-control" type="number" name="age" min="0" max="100" step="1">

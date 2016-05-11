@@ -10,7 +10,7 @@ if (isset($_POST['biodata_form'])) {
   $email = "";
   $dob = "";
   $height = "";
-  $phone = "";
+  $tel = "";
   $color = "";
   $url = "";
   $univ = "";
@@ -96,6 +96,7 @@ if (isset($_POST['biodata_form'])) {
     $msg .= "Error: Please insert an univ.<br>";
     $count_error++;
   }
+
   // more validations here
 
   if ($count_error > 0) {
@@ -144,75 +145,69 @@ else {
 
     <div class="container-fluid" id="kotak">
       <div class="row">
-        <div class="col-md-offset-1 col-md-10 well">
+        <div class="col-md-offset-1 col-md-5 well">
           <div class="container">
-           <form class="" action="index.php" method="post">
+           <form class="" action="save_biodata.php" method="post">
               <div class="col-md-5">
                 <div class="form-group">
-                <label>Name :</label><?php echo titleCase($name); ?>
-                <input name="name "class="form-control" placeholder="Insert your name" value="<?php echo $name; ?>" autofocus>
+                <label>Name :</label>
+                <input name="name" class="form-control" placeholder="Insert your name" value="<?php echo titleCase($name); ?>"  disabled="" autofocus>
               </div>
               <div class="form-group">
-                <label>Age :</label><?php echo $age; ?>
-                <input name="age" class="form-control" type="number" name="age" min="0" max="100" step="1" value="<?php echo $age; ?>">
+                <label>Age :</label>
+                <input name="age" class="form-control" type="number" name="age" min="0" max="100" step="1" value="<?php echo $age; ?>" disabled="">
               </div>
               <div class="form-group">
-                <label>Sex </label><?php echo $sex; ?>
-                <input type="hidden" name="sex" value="<?php echo $sex; ?>">
+                <label>Sex </label>
+                <input class="form-control" name="sex" value="<?php echo titleCase($sex); ?>" disabled="">
               </div>
                   <div class="form-group">
-                    <label>Address</label><?php echo $address; ?>
-                    <textarea name="address" cols="50" class="form-control" rows="4" placeholder="Insert your address" value="<?php echo $address; ?>"></textarea>
+                    <label>Address</label>
+                    <textarea name="address" cols="50" class="form-control" rows="4" placeholder="Insert your address" disabled=""><?php echo $address; ?></textarea>
                   </div>
                   <div class="form-group">
-                    <label>Email :</label><?php echo $email; ?>
-                    <input name="email" class="form-control" placeholder="Insert your email" value="<?php echo $email; ?>">
+                    <label>Email :</label>
+                    <input name="email" class="form-control" placeholder="Insert your email" value="<?php echo $email; ?>" disabled="">
                   </div>
-              </div>
-            </div>
-            <div class="col-md-5">
               <div class="form-group">
-                <label>Date Of Birth</label><?php echo date("d-m-Y", strtotime($dob)); ?>
-                <input class="form-control" type="hidden" name="dob" value="<?php echo $dob; ?>">
+                <label>Date Of Birth</label>
+                <input class="form-control" name="dob" value="<?php echo date("d-m-Y", strtotime($dob)); ?>" disabled="">
               </div>
               <div class="form-group">
-                <label>Height (cm)</label><?php echo $height; ?>
-                <input type="hidden" name="height" id="heightId" value = "<?php echo $height; ?>">
+                <label>Height (cm)</label>
+                <input class="form-control" name="height" id="heightId" value = "<?php echo $height; ?>" disabled="">
               </div>
               <div class="form-group">
-                <label>Tel</label><?php echo $tel; ?>
-                <input type="hidden" name="tel" value="<?php echo $tel; ?>">
+                <label>Tel</label>
+                <input class="form-control" name="tel" value="<?php echo $tel; ?>" disabled="">
               </div>
               <div class="form-group">
-                <label>My Favourite Colour</label><?php echo $color; ?>
-                <br><input type="hidden" name="color" style="width:100%" value="<?php echo $color; ?>">
+                <label>My Favourite Colour</label>
+                <br><input class="form-control" name="color" style="width:100%" value="<?php echo $color; ?>" disabled="">
               </div>
               <div class="form-group">
-                <label>My FBTWIG</label><?php echo $url; ?>
-                <input name="url" type="hidden" value="<?php echo $url; ?>">
+                <label>My FBTWIG</label>
+                <input name="url" class="form-control" value="<?php echo $url; ?>" disabled="">
               </div>
               <div class="form-group">
                 <label>My University</label><?php echo $univ; ?>
-                <input input type="hidden" name="univ" value="<?php echo $univ; ?>">
+                <input class="form-control" name="univ" value="<?php echo $univ; ?>" disabled="">
               </div>
               <div class="form-group">
                 <label>My Matric Number</label>
-                <input <?php echo $matricnum; ?>>
+                <input class="form-control" value"<?php echo $matricnum; ?>" disabled="">
               </div>
-
             </div>
 
-            </form>
           </div>
-
-
-
         </div>
-        <div class="col-md-offset-1 col-md-10">
+
+        <div class="col-md-offset-1 col-md-10" style="margin-bottom:10px;">
+          <hr>
           <input type="hidden" name="matricnum" value="<?php echo $matricnum; ?>">
-          <button type="submit" name="biodata_validate" value="Save My Biodata">
+          <input class="btn btn-primary" type="submit" name="validate_biodata" value="Save My Biodata">
         </div>
-
+      </form>
       </div>
     </div>
   </div>
