@@ -39,21 +39,27 @@
         $univ = $_POST['univ'];
 
         $stmt->execute();
-
-
-
-        include_once'save.php';
+?>
+<br>
+<div class="col-md-offset-1 col-md-10">
+  <div id="test" class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Welldone!</strong> Record of <?php echo "$name"; ?> has been added.
+  </div>
+</div>
+<?php
         }
 
       catch(PDOException $e)
       {
+
           echo "Error: " . $e->getMessage();
       }
 
       $conn = null;
     }
 
- ?>
+?>
  <?php
 
  $univ = array
